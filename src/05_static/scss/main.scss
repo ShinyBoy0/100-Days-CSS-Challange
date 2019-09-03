@@ -1,0 +1,263 @@
+/*
+
+005 Statistics
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+
+
+/* Declared the colors */
+
+$red:  #FA7373;
+$blue: #7BA2FF;
+
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: 400px;
+    height: 400px;
+    background: #42A7A1;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.card {
+    position: absolute;
+    top: 90px;
+    left: 60px;
+    width: 280px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    background: #fff;
+
+    .header {
+        position: relative;
+        background: #F1BA64;
+        height: 60px;
+        width: 100%;
+
+        .big {
+            position: absolute;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .small {
+            position: absolute;
+            font-weight: 400;
+            font-size: 11px;
+        }
+
+        .title {
+            top: 12px;
+            left: 15px;
+        }
+
+        .date {
+            top: 30px;
+            left: 15px;
+        }
+
+        .type {
+            right: 15px;
+            top: 14px;
+        }
+
+        .value {
+            right: 15px;
+            top: 28px;
+        }
+    }
+
+    /** Parameter **/
+
+    .parameter {
+        color: #606060;
+        text-align: right;
+        padding: 10px 0 14px 0;
+
+        span {
+            font-size: 9px;
+            line-height: 13px;
+            padding: 0 10px 0 25px;
+            width: 6px;
+            height: 3px;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 11px;
+                height: 3px;
+                border-radius: 3px;
+            }
+
+            &.red:before { background: $red }
+            &.blue:before { background: $blue }
+        }
+
+    }
+
+    /** Statistic **/
+
+    .statistic {
+        position: relative;
+        height: 81px;
+        width: 260px;
+        margin: 0 auto;
+
+        .line-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: #F2F2f2;
+        }
+
+        .line-2 {
+            @extend .line-1;
+            top: 40px;
+        }
+
+        .line-3 {
+            @extend .line-1;
+            top: inherit;
+            bottom: 0;
+        }
+
+        /** Data **/
+        
+        .data {
+
+            svg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            polyline {
+                stroke-width: 2;
+                stroke-linecap: round;
+                fill: none;
+            }
+
+            &.red polyline { stroke: $red; }
+            &.blue polyline { stroke: $blue; }
+
+            .tooltip {
+                position: absolute;
+                left: 50%;
+                bottom: 13px;
+                transform: translate3d(-50%, 10px, 0);
+                color: #fff;
+                font-size: 11px;
+                line-height: 11px;
+                padding: 8px 6px;
+                font-weight: 600;
+                border-radius: 3px;
+                visibility: hidden;
+                opacity: 0;
+                transition: transform 0.4s ease-out 0s, opacity 0.4s ease-out 0s;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: -2px;
+                    left: 42%;
+                    width: 5px;
+                    height: 5px;
+                    transform: rotate(45deg);
+                }
+            }
+
+            [class^="point-"] {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 3px;
+                cursor: pointer;
+                z-index: 10;
+
+                &:hover .tooltip {
+                    visibility: visible;
+                    transform: translate3d(-50%, 0, 0);
+                    opacity: 1;
+                }
+            }
+
+            /* Red */
+    
+            &.red {
+
+                [class^="point-"], .tooltip, .tooltip:after {
+                    background: $red;
+                }
+
+                .point-1 { top: 43px; left: 6px;}
+                .point-2 { left: 48px; top: 10px; }
+                .point-3 { left: 88px; top: 20px; }
+                .point-4 { left: 128px; top: 8px; }
+                .point-5 { left: 169px; top: 36px; }
+                .point-6 { left: 209px; top: 45px; }
+                .point-7 { left: 249px; top: 16px; }
+            }
+
+            /* Blue */
+
+            &.blue {
+
+                [class^="point-"], .tooltip, .tooltip:after {
+                    background: $blue;
+                }
+
+                .point-1 { left: 7px; top: 59px; }
+                .point-2 { left: 48px; top: 48px; }
+                .point-3 { left: 88px; top: 62px; }
+                .point-4 { left: 128px; top: 53px; }
+                .point-5 { left: 169px; top: 59px; }
+                .point-6 { left: 209px; top: 72px; }
+                .point-7 { left: 249px; top: 62px ;}
+            }
+
+
+        }
+
+    }
+
+
+
+
+    /* Days **/
+
+    .days {
+        color: #949494;
+        font-size: 9px;
+        width: 280px;
+        margin: 0 auto;
+
+        .day {
+            width: (100%/7);
+            float: left;
+            line-height: 30px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+}

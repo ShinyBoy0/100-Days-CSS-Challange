@@ -1,0 +1,115 @@
+/*
+
+Blobb
+
+*/
+/* ------------ Frame --------------------- */
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  background: #46A6DA;
+  width: 400px;
+  height: 400px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3); }
+
+/* ----------------- Blubb ---------------- */
+.blubb {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 50%;
+  top: 155px;
+  left: 155px;
+  animation: blubb 5s ease-in-out infinite; }
+
+/* -------------- Blubb Ring ---------------- */
+.blubb-ring {
+  box-sizing: border-box;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 140px;
+  left: 140px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  animation: blubb-ring 5s ease-in-out infinite; }
+
+/* ----------- Octa ------------ */
+.octa {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 150px;
+  height: 150px;
+  left: 150px;
+  fill: #fff;
+  animation: octa 5s ease-in-out infinite; }
+
+.octa-sparkles {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 100px;
+  left: 100px; }
+  .octa-sparkles .sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px; }
+    .octa-sparkles .sparkle:after, .octa-sparkles .sparkle:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      border-radius: 3px;
+      width: 4px;
+      height: 25px; }
+    .octa-sparkles .sparkle:after {
+      top: auto;
+      bottom: 0; }
+  .octa-sparkles .s2 {
+    transform: translate3d(0, 0, 0) rotate(35deg); }
+
+/* --------------- @keyframes ---------------- */
+@keyframes blubb {
+  0% {
+    transform: translate3d(0, -300px, 0) scaleY(1.2); }
+  10% {
+    transform: translate3d(0, 50px, 0) scaleY(0.8); }
+  14% {
+    transform: translate3d(0, -30px, 0) scaleY(1.1); }
+  18% {
+    transform: translate3d(0, 10, 0) scaleY(0.9); }
+  20%, 22% {
+    transform: translate3d(0, 0, 0) scaleY(1); }
+  26% {
+    transform: translate3d(0, 0px, 0) scaleY(1.2); }
+  32%, 74% {
+    transform: translate3d(0, 0, 0) scale(0); }
+  80% {
+    transform: translate3d(0, 0, 0) scaleY(1.2); }
+  84% {
+    transform: translate3d(0, 0, 0) scaleY(0.9); }
+  86%, 88% {
+    transform: translate3d(0, 0, 0) scaleY(1); }
+  90% {
+    transform: translate3d(0, -30px, 0) scaleY(0.9); }
+  100% {
+    transform: translate3d(0, 300px, 0) scaleY(1.2); } }
+
+@keyframes blubb-ring {
+  0%, 74% {
+    transform: translate3d(0, 0, 0) scale(0);
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  90%, 100% {
+    transform: translate3d(0, 0, 0) scale(1.4);
+    opacity: 0; } }

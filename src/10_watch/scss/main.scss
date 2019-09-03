@@ -1,0 +1,241 @@
+/*
+
+10 - Watch UI, 
+
+*/
+
+
+/* ---- Importing Font from google fonts ------ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+
+
+$speed: 60s;
+
+/* --------- Frame --------------- */
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #4C4C4C;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: 400px;
+    height: 400px;
+    border-radius: 3px;
+    box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.3);
+    line-height: 100%;
+    font-size: 12px;
+    color: #fff;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+
+/* ------------ Watch ------------ */
+
+.watch {
+    position: absolute;
+    top: 87px;
+    left: 87px;
+    width: 212px;
+    height: 212px;
+    background: #242424;
+    border-radius: 50%;
+    border: 7px solid #3A3A3A;
+    text-align: center;
+
+    // Date
+
+    .date {
+        position: absolute;
+        top: 68px;
+        width: str-index($string: 'acc', $substring: 'a') + 99%;
+    }
+
+    // Time 
+
+    .time {
+        position: absolute;
+        top: 80px;
+        width: str-index($string: 'acc', $substring: 'a') + 99%;
+        font-size: 40px;
+        line-height: 100%;
+        font-weight: 700;
+        margin: 4px 0;
+
+        // tok
+        .tok {
+            animation: fadeInOut 1s infinite;
+        }
+    }
+
+    // Beat
+
+    .beat {
+        position: absolute;
+        top: 129px;
+        left: 57px;
+
+        span {
+            color: #F85B5B;
+            font-size: 10px;
+            margin-right: 4px;
+            margin-top: 1px;
+        }
+    }
+
+    // energy
+
+    .energy {
+        position: absolute;
+        top: 129px;
+        right: 55px;
+    }
+
+    
+    // Point
+    
+    @for $start from 1 through 15 {
+        .point-set-#{$start} {
+            position: absolute;
+            width: 188px;
+            height: 188px;
+            top: 12px;
+            left: 12px;
+            border-radius: 50%;
+            transform: rotate( ((1 - $start) * 6) + deg);
+
+            // point-1
+
+            .point-1 {
+                position: absolute;
+                top: 0;
+                left: 93px;
+                width: 2px;
+                height: 2px;
+                background: #D3D3D3;
+                border-radius: 50%;
+            }
+
+            // point-2
+
+            .point-2 {
+                @extend .point-1;
+                top: 93px;
+                right: 0;
+                left: auto;
+            }
+
+            // point-3
+
+            .point-3 {
+                @extend .point-1;
+                bottom: 0;
+                top: auto;
+            }
+            
+
+            // point-4
+            
+            .point-4 {
+                @extend .point-1;
+                left: 0;
+                top: 93px;
+            }
+        }
+    }
+
+
+    // Ring 
+
+    .ring {
+        position: absolute;
+        width: 202px;
+        height: 202px;
+        top: 5px;
+        left: 5px;
+        border-radius: 50%;
+
+        // mask-1 
+        .mask-1 {
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            clip: rect(0,202px,202px,101px);
+
+            .spin {
+                box-sizing: border-box;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 50%;
+                bottom: 0;
+                border-radius: 100% 0 0 100% / 50% 0 0 50%;
+                border: 3px solid #F85B5B;
+                background: rgba(248, 91, 91, 0.3);
+                border-right: none;
+                transform-origin: 100% 50%;
+                animation-name: rotate-1;
+                animation-duration: $speed;
+                animation-iteration-count: infinite;
+                animation-fill-mode: both;
+                animation-timing-function: cubic-bezier(1,1,1,1);
+            }
+        }
+
+        // mask-2
+        .mask-2 {
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            clip: rect(0,101px,202px,0);
+
+            .spin {
+                box-sizing: border-box;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 50%;
+                bottom: 0;
+                background: rgba(248, 91, 91, 0.3);
+                border: 3px solid #F85B5B;
+                border-radius: 100% 0 0 100% / 50% 0 0 50%;
+                border-right: none;
+                transform-origin: 100% 50%;
+                animation: rotate-2 $speed cubic-bezier(1,1,1,1) infinite;
+            }
+        }
+
+    }
+}
+
+
+/* ------------ @keyframes ------------- */
+
+@keyframes rotate-1 {
+    0% { transform: rotate(0) }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(360deg);}
+    100% { transform: rotate(360deg);}
+}
+
+@keyframes rotate-2 {
+    0% { transform: rotate(180deg) }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(360deg); }
+    75% { transform: rotate(360deg); }
+    100% { transform: rotate(540deg); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 1; }
+    50% { opacity: 0; };
+}

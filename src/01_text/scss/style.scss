@@ -1,0 +1,177 @@
+/*
+
+
+01 - 100 Days Css Challange
+
+*/
+
+
+
+$gradient-first : #43389F;
+$gradient-sec   : #4ec6ca;
+$white: #fff;
+
+
+
+
+
+/*  **       Starts Here              **  */
+
+
+@mixin linearGradient ($dir, $first, $second)
+{
+    background-color: $first;
+    background: linear-gradient($dir, $first 0%, $second 100%);
+    background: -webkit-linear-gradient($dir, $first 0%, $second 100%);
+    background: -moz-linear-gradient($dir, $first 0%, $second 100%);
+    background: -o-linear-gradient($dir, $first 0%, $second 100%);
+}
+
+
+
+.frame {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    @include linearGradient(to top right, $gradient-first, $gradient-sec);
+    color: $white;
+    font-family: sans-serif;
+    border-radius: 2px;
+    box-shadow: 0 0 13px rgba(0, 0, 0, 0.3);
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.number {
+    position: relative;
+    height: 100px;
+    width: 200px;
+
+    // Zero one
+    & .one-one {
+        position: absolute;
+        top: 0;
+        left: -16px;
+        background-color: $white;
+        width: 20px;
+        height: 40px;
+        border-radius: 3px;
+        transform: rotate(50deg);
+        box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    // zero two
+    & .one-two {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $white;
+        height: 100%;
+        width: 24px;
+        border-radius: 3px;
+        box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    // zero-one, zero-two
+
+    & .zero-one, & .zero-two {
+        position: absolute;
+        top: 0;
+        left: 16px;
+        border: 25px solid $white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.3);
+        z-index: 4;
+
+        // before
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $white;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            animation-name: fadeIn;
+            animation-duration: 0.9s;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    // zero-one
+    & .zero-one {
+        animation-name: shakeUp;
+        animation-duration: 1s;
+        animation-iteration-count: infinite
+    }
+
+    // zero-two
+    & .zero-two {
+        left: 110px;
+        z-index: 3;
+
+        //Ani
+        animation-name: shake;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        
+        // before 
+        &:before {
+            content: '';
+            animation: fadeIn 1.2s Infinite;
+        }
+    }
+}
+
+
+.big {
+    font-size: 5.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 70px;
+    margin-left: -7px;
+}
+
+.small {
+    font-size: 2.2em;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    line-height: 30px;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 1 }
+    50%  { opacity: 0 }
+}
+
+
+@keyframes shake {
+    0% { left: 110px; }
+    60% { left: 120px }
+}
+
+@keyframes shakeUp {
+    0% { top: 0px }
+    50% { top: -10px }
+    80% { top: 0 }
+    90% { top: -5px}
+}

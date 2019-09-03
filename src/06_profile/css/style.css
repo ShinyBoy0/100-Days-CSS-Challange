@@ -1,0 +1,124 @@
+/*
+
+Profile 
+
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+/** ---------- Varibale --------------- **/
+/** ----------- Mixin ---------------- **/
+/** -------------- Frame ----------------- **/
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  background: #EEBE6C 0%;
+  background: linear-gradient(bottom left, #EEBE6C 0%, #CA7C4E 100%);
+  background: -webkit-linear-gradient(bottom left, #EEBE6C 0%, #CA7C4E 100%);
+  background: -moz-linear-gradient(bottom left, #EEBE6C 0%, #CA7C4E 100%);
+  background: -o-linear-gradient(bottom left, #EEBE6C 0%, #CA7C4E 100%);
+  width: 400px;
+  height: 400px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  color: #786450;
+  font-family: 'Open Sans', Helvetica, sans-serif; }
+
+.center {
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  background: #fff;
+  width: 320px;
+  height: 299px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); }
+  .center .profile {
+    width: 200px;
+    height: 320px;
+    overflow: hidden;
+    float: left;
+    text-align: center; }
+    .center .profile .image {
+      position: relative;
+      margin: 38px auto 0 auto;
+      width: 70px;
+      height: 70px;
+      cursor: pointer; }
+      .center .profile .image img {
+        display: block;
+        background: #F5E8DF;
+        border-radius: 50%;
+        object-fit: cover; }
+      .center .profile .image .circle-1, .center .profile .image .circle-2 {
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #786450 transparent #786450 #786450;
+        height: 76px;
+        width: 76px;
+        border-radius: 50%;
+        animation: rotateMe 1.5s infinite; }
+      .center .profile .image .circle-2 {
+        height: 82px;
+        width: 82px;
+        top: -6px;
+        left: -6px;
+        border-color: #786450 #786450 #786450 transparent;
+        animation: rotateMe 1.5s infinite alternate-reverse; }
+      .center .profile .image:hover {
+        animation: none !important; }
+    .center .profile .name {
+      margin-top: 20px;
+      font-weight: 600; }
+    .center .profile .job {
+      font-size: 11px;
+      line-height: 15px; }
+    .center .profile .actions {
+      margin-top: 32px; }
+      .center .profile .actions .btn {
+        color: #786450;
+        font-size: 12px;
+        outline: none;
+        display: block;
+        font-weight: 600;
+        width: 120px;
+        height: 30px;
+        margin: 10px auto 0 auto;
+        background: transparent;
+        border: 1px solid #786450;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.4s; }
+        .center .profile .actions .btn:hover {
+          background: #786450;
+          color: #fff; }
+  .center .status {
+    float: left;
+    width: 120px; }
+    .center .status .box {
+      width: inherit;
+      height: 99px;
+      text-align: center;
+      background: #F5E8DF;
+      padding-top: 28px;
+      box-sizing: border-box; }
+      .center .status .box:nth-child(2) {
+        margin: 1px 0; }
+      .center .status .box span {
+        display: block; }
+      .center .status .box .value {
+        font-size: 18px;
+        font-weight: 600; }
+      .center .status .box .parameter {
+        font-size: 11px; }
+
+@keyframes rotateMe {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }

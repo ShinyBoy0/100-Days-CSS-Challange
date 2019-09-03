@@ -1,0 +1,270 @@
+/*
+
+User Gallery 13 Days, CSS Challange
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+$red: #EC6565;
+
+
+// Frame //
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+
+// Profile //
+
+.profile {
+    float: left;
+    width: 194px;
+    height: 194px;
+    position: relative;
+    margin: 4px 0 0 4px;
+    cursor: pointer;
+
+    //overlay
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #000;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+    }
+
+    // Plus //
+    .plus {
+        position: absolute;
+        top: 72px;
+        left: 72px;
+        width: 50px;
+        height: 50px;
+        background: $red;
+        border-radius: 50%;
+        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.8);
+        transform: scale(2);
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+
+        // For -
+        &:before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 17px;
+            width: 16px;
+            height: 2px;
+            border-radius: 2px;
+            background: #fff;
+        }
+
+        // for |
+        &:after {
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 24px;
+            width: 2px;
+            height: 16px;
+            background: #fff;
+        }
+    }
+
+    // Hover over the profile //
+
+    &:hover {
+        
+        .overlay {
+            opacity: 0.4;
+        }
+
+        // For Plus Sign
+        .plus {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+.detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    // Header
+    .header {
+        transform: translate(0, -190px);
+        transition: transform 2s ease-in-out 0.8s;
+    }
+
+    // close //
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        background: $red;
+        border-radius: 50%;
+        transition: background-color 0.4s ease-in-out, transform 1s ease-in-out !important;
+        transform: translate(0, -60px);
+        z-index: 2;
+        cursor: pointer;
+
+        // for X sign
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 17px;
+            width: 16px;
+            height: 2px;
+            background: #fff;
+            transform: rotate(45deg);
+
+        }
+        
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+
+        // Hover //
+        &:hover {
+            background: #ccc;
+
+            &:before,
+            &:after {
+                background: $red;
+            }
+        }
+
+    }
+
+    .image {
+        position: absolute;
+        top: 130px;
+        left: 150px;
+        width: 96px;
+        height: 96px;
+        border-radius: 510px;
+        overflow: hidden;
+        border: 2px solid #fff;
+        z-index: 2;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        
+        // for hiding
+        transform: translate(0, -250px);
+        transition: transform 2s ease-in-out 0.2s;
+
+        // img 
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
+    // Infos //
+    .infos {
+        position: absolute;
+        top: 180px;
+        left: 0;
+        right: 0;
+        background: $red;
+        height: 230px;
+        z-index: 1;
+        padding-top: 67px;
+        text-align: center;
+        
+        // for hiding
+        transform: translate(0, 220px);
+        transition: transform 2s ease-in-out 0.6s;
+
+        // name
+        .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        // Actions
+        .actions {
+            position: absolute;
+            top: 120px;
+            left: 96px;
+
+            .btn {
+                box-sizing: border-box;
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                color: #fff;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                margin-right: 38px;
+                cursor: pointer;
+                transition: background 0.5s ease;
+
+                // fa
+                .fa {
+                    text-align: center;
+                }
+
+                // :hover
+                &:hover {
+                    background: #fff;
+                }
+            }
+        }
+    }
+
+    // For Active Class When user clicks on the image
+    &.active {
+        pointer-events: all;
+
+        // for header comming down slowly
+        .header {
+            transform: translate(0, 0);
+            transition: 0.8s ease-in-out;
+        }
+
+        // and also for infos
+        .infos {
+            transform: translate(0, 0);
+            transition: 0.8s ease-in-out;
+        }
+
+        // for image, close button too
+        .image {
+            transform: translate(0,0);
+            transition: 0.8s ease-in-out 0.4s;
+        }
+
+        .close {
+            transform: translate(0,0);
+            transition: 0.8s ease-in-out 0.6s;
+        }
+    }
+}

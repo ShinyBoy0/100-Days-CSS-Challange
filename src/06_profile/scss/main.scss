@@ -1,0 +1,203 @@
+/*
+
+Profile 
+
+*/
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
+
+
+/** ---------- Varibale --------------- **/
+
+$brown: #786450;
+$background : #CA7C4E;
+$linear: #EEBE6C;
+$img_back: #F5E8DF;
+
+/** ----------- Mixin ---------------- **/
+
+@mixin gradient($pos, $color1, $color2 ) 
+{
+    background: $color1;
+    background: linear-gradient($pos, $color1, $color2);
+    background: -webkit-linear-gradient($pos, $color1, $color2);
+    background: -moz-linear-gradient($pos, $color1, $color2);
+    background: -o-linear-gradient($pos, $color1, $color2);
+}
+
+
+/** -------------- Frame ----------------- **/
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    @include gradient(bottom left, $linear 0%, $background 100%);
+    width: 400px;
+    height: 400px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    color: $brown;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.center {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    background: #fff;
+    width: 320px;
+    height: 299px;
+    border-radius: 3px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+
+    // Profile 
+
+    .profile {
+        width: 200px;
+        height: 320px;
+        overflow: hidden;
+        float: left;
+        text-align: center;
+
+        //Image
+
+        .image {
+            position: relative;
+            margin: 38px auto 0 auto;
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+
+            img {
+                display: block;
+                background: $img_back;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            // Circle-1
+            
+            .circle-1 {
+                position: absolute;
+                top: -3px;
+                left: -3px;
+                box-sizing: border-box;
+                border-width: 1px;
+                border-style: solid;
+                border-color: $brown transparent $brown $brown;
+                height: 76px;
+                width: 76px;
+                border-radius: 50%;
+                animation: rotateMe 1.5s infinite;
+            }
+
+            // Circle 2 
+            
+            .circle-2 {
+                @extend .circle-1;
+                height: 82px;
+                width: 82px;
+                top: -6px;
+                left: -6px;
+                border-color: $brown $brown $brown transparent;
+                animation: rotateMe 1.5s infinite alternate-reverse;
+            }
+
+            //Hover
+            
+            &:hover {
+                animation: none !important;
+            }
+        }
+
+
+        // Name 
+
+        .name {
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .job {
+            font-size: 11px;
+            line-height: 15px;
+        }
+
+        // Actions
+        .actions {
+            
+            margin-top: 32px;
+
+            .btn {
+                color: $brown;
+                font-size: 12px;
+                outline: none;
+                display: block;
+                font-weight: 600;
+                width: 120px;
+                height: 30px;
+                margin: 10px auto 0 auto;
+                background: transparent;
+                border: 1px solid $brown;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: 0.4s;
+
+                // Hover
+
+                &:hover {
+                    background: $brown;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // Status
+
+    .status {
+        float: left;
+        width: 120px;
+
+        .box {
+            width: inherit;
+            height: 99px;
+            text-align: center;
+            background: $img_back;
+            padding-top: 28px;
+            box-sizing: border-box;
+
+            // Nth-child
+            &:nth-child(2) {
+                margin: 1px 0;
+            }
+
+            span { display: block; }
+
+            .value {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .parameter {
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+
+
+// @keyframes
+
+@keyframes rotateMe {
+    0% { transform: rotate(0deg) }
+
+    100% { transform: rotate(360deg) }
+}

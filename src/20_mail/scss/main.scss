@@ -1,0 +1,188 @@
+/*
+
+
+20 Days CSS - Mail Send
+
+*/
+
+
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    background: #2c3e50;
+    border-radius: 2px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.circle {
+    background: #354A5F;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    top: 65px;
+    left: 100px;
+    position: absolute;
+}
+
+// circle-outer
+
+.circle-outer {
+    @extend .circle;
+    box-sizing: border-box;
+    border: 3px solid #354A5F;
+    background: none;
+}
+
+// icon // 
+
+.icon { 
+    position: absolute;
+    top: 130px;
+    left: 140px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 325 325;
+
+    // mail //
+
+    &.mail {
+        stroke-dashoffset: 0;
+    }
+
+    // fly
+
+    &.plane {
+        stroke-dashoffset: 325;
+    }
+}
+
+
+// Button //
+
+.button {
+    position: absolute;
+    top: 290px;
+    left: 100px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    width: 200px;
+    height: 40px;
+    border-radius: 24px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 10;
+
+    // reset // 
+    &.reset {
+        z-index: 5;
+        opacity: 0;
+    }
+
+    &:hover {
+        background: #1abc9c;
+        color: #fff;
+    }
+}
+
+// hide the checkbo //
+#cb { display: none;}
+
+
+// checked the checkbox //
+
+// hide the mail icon by dashoffset //
+#cb:checked ~ .mail {
+    transition: stroke-dashoffset 1s ease;
+    stroke-dashoffset: 325;
+}
+
+// show off the plane 
+#cb:checked ~ .plane {
+    transition: stroke-dashoffset 1s ease 0.8s;
+    stroke-dashoffset: 0;
+    animation: fly 1s ease 0.8s;
+    animation-fill-mode: both;
+}
+
+
+// circle // 
+
+#cb:checked ~ .circle {
+    animation: circle 1s ease;
+    animation-fill-mode: both;
+}
+
+// for outer circle // 
+#cb:checked ~ .circle-outer {
+    animation: circle 1s ease 0.1s;
+    animation-fill-mode: both;
+}
+
+// button 
+#cb:checked ~ .button {
+    animation: button 2s ease 1s;
+    animation-fill-mode: both;
+}
+
+// @keyframes //
+
+@keyframes fly {
+    0% { transform: transalte(0, 0); }
+    30% { transform: translate(0, 0)}
+    50% { transform: translate(-10px, 2px)}
+    100% { transform: translate(100px, -170px) scale(0); }
+}
+
+@keyframes circle {
+    0% {
+        transform: scale(1);
+    }
+    10% { transform: scale(1.1)}
+    100% {
+        transform: scale(0)
+    }
+}
+
+@keyframes button {
+    10% { background: #1abc9c; color: #1abc9c;}
+    30% {
+        background: #1abc9c;
+        width: 200px;
+        left: 100px;
+    }
+    50% {
+        width: 40px;
+        left: 180px;
+        transform: scale(1);
+    }
+    70% { 
+        transform: scale(1.1); 
+        opacity: 1;
+
+    }
+    80% { 
+        transform: scale(0);
+        width: 40px;
+        left: 180px;
+        background: #1abc9c;
+        color: transparent;
+    }
+    100% {
+        transform: scale(1);
+        z-index: 4;
+        opacity: 1;
+     }
+}

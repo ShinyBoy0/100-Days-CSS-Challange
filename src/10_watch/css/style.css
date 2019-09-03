@@ -1,0 +1,536 @@
+/*
+
+10 - Watch UI, 
+
+*/
+/* ---- Importing Font from google fonts ------ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+/* --------- Frame --------------- */
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #4C4C4C;
+  margin-left: -200px;
+  margin-top: -200px;
+  width: 400px;
+  height: 400px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.3);
+  line-height: 100%;
+  font-size: 12px;
+  color: #fff;
+  font-family: 'Open Sans', Helvetica, sans-serif; }
+
+/* ------------ Watch ------------ */
+.watch {
+  position: absolute;
+  top: 87px;
+  left: 87px;
+  width: 212px;
+  height: 212px;
+  background: #242424;
+  border-radius: 50%;
+  border: 7px solid #3A3A3A;
+  text-align: center; }
+  .watch .date {
+    position: absolute;
+    top: 68px;
+    width: 100%; }
+  .watch .time {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    font-size: 40px;
+    line-height: 100%;
+    font-weight: 700;
+    margin: 4px 0; }
+    .watch .time .tok {
+      animation: fadeInOut 1s infinite; }
+  .watch .beat {
+    position: absolute;
+    top: 129px;
+    left: 57px; }
+    .watch .beat span {
+      color: #F85B5B;
+      font-size: 10px;
+      margin-right: 4px;
+      margin-top: 1px; }
+  .watch .energy {
+    position: absolute;
+    top: 129px;
+    right: 55px; }
+  .watch .point-set-1 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(0deg); }
+    .watch .point-set-1 .point-1, .watch .point-set-1 .point-2, .watch .point-set-1 .point-3, .watch .point-set-1 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-1 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-1 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-1 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-2 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-6deg); }
+    .watch .point-set-2 .point-1, .watch .point-set-2 .point-2, .watch .point-set-2 .point-3, .watch .point-set-2 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-2 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-2 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-2 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-3 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-12deg); }
+    .watch .point-set-3 .point-1, .watch .point-set-3 .point-2, .watch .point-set-3 .point-3, .watch .point-set-3 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-3 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-3 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-3 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-4 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-18deg); }
+    .watch .point-set-4 .point-1, .watch .point-set-4 .point-2, .watch .point-set-4 .point-3, .watch .point-set-4 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-4 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-4 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-4 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-5 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-24deg); }
+    .watch .point-set-5 .point-1, .watch .point-set-5 .point-2, .watch .point-set-5 .point-3, .watch .point-set-5 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-5 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-5 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-5 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-6 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-30deg); }
+    .watch .point-set-6 .point-1, .watch .point-set-6 .point-2, .watch .point-set-6 .point-3, .watch .point-set-6 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-6 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-6 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-6 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-7 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-36deg); }
+    .watch .point-set-7 .point-1, .watch .point-set-7 .point-2, .watch .point-set-7 .point-3, .watch .point-set-7 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-7 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-7 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-7 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-8 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-42deg); }
+    .watch .point-set-8 .point-1, .watch .point-set-8 .point-2, .watch .point-set-8 .point-3, .watch .point-set-8 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-8 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-8 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-8 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-9 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-48deg); }
+    .watch .point-set-9 .point-1, .watch .point-set-9 .point-2, .watch .point-set-9 .point-3, .watch .point-set-9 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-9 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-9 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-9 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-10 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-54deg); }
+    .watch .point-set-10 .point-1, .watch .point-set-10 .point-2, .watch .point-set-10 .point-3, .watch .point-set-10 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-10 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-10 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-10 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-11 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-60deg); }
+    .watch .point-set-11 .point-1, .watch .point-set-11 .point-2, .watch .point-set-11 .point-3, .watch .point-set-11 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-11 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-11 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-11 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-12 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-66deg); }
+    .watch .point-set-12 .point-1, .watch .point-set-12 .point-2, .watch .point-set-12 .point-3, .watch .point-set-12 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-12 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-12 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-12 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-13 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-72deg); }
+    .watch .point-set-13 .point-1, .watch .point-set-13 .point-2, .watch .point-set-13 .point-3, .watch .point-set-13 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-13 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-13 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-13 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-14 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-78deg); }
+    .watch .point-set-14 .point-1, .watch .point-set-14 .point-2, .watch .point-set-14 .point-3, .watch .point-set-14 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-14 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-14 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-14 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .point-set-15 {
+    position: absolute;
+    width: 188px;
+    height: 188px;
+    top: 12px;
+    left: 12px;
+    border-radius: 50%;
+    transform: rotate(-84deg); }
+    .watch .point-set-15 .point-1, .watch .point-set-15 .point-2, .watch .point-set-15 .point-3, .watch .point-set-15 .point-4 {
+      position: absolute;
+      top: 0;
+      left: 93px;
+      width: 2px;
+      height: 2px;
+      background: #D3D3D3;
+      border-radius: 50%; }
+    .watch .point-set-15 .point-2 {
+      top: 93px;
+      right: 0;
+      left: auto; }
+    .watch .point-set-15 .point-3 {
+      bottom: 0;
+      top: auto; }
+    .watch .point-set-15 .point-4 {
+      left: 0;
+      top: 93px; }
+  .watch .ring {
+    position: absolute;
+    width: 202px;
+    height: 202px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%; }
+    .watch .ring .mask-1 {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      clip: rect(0, 202px, 202px, 101px); }
+      .watch .ring .mask-1 .spin {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 50%;
+        bottom: 0;
+        border-radius: 100% 0 0 100% / 50% 0 0 50%;
+        border: 3px solid #F85B5B;
+        background: rgba(248, 91, 91, 0.3);
+        border-right: none;
+        transform-origin: 100% 50%;
+        animation-name: rotate-1;
+        animation-duration: 60s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(1, 1, 1, 1); }
+    .watch .ring .mask-2 {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      clip: rect(0, 101px, 202px, 0); }
+      .watch .ring .mask-2 .spin {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 50%;
+        bottom: 0;
+        background: rgba(248, 91, 91, 0.3);
+        border: 3px solid #F85B5B;
+        border-radius: 100% 0 0 100% / 50% 0 0 50%;
+        border-right: none;
+        transform-origin: 100% 50%;
+        animation: rotate-2 60s cubic-bezier(1, 1, 1, 1) infinite; }
+
+/* ------------ @keyframes ------------- */
+@keyframes rotate-1 {
+  0% {
+    transform: rotate(0); }
+  25% {
+    transform: rotate(180deg); }
+  50% {
+    transform: rotate(180deg); }
+  75% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes rotate-2 {
+  0% {
+    transform: rotate(180deg); }
+  25% {
+    transform: rotate(180deg); }
+  50% {
+    transform: rotate(360deg); }
+  75% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(540deg); } }
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }

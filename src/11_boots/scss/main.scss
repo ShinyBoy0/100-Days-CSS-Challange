@@ -1,0 +1,116 @@
+/*
+
+Boots are made for walking
+
+*/
+
+
+
+// Mixin Function for gradient color
+@mixin gradient($pos, $uni, $color1, $color2)
+{
+    background: $color1;
+    background: radial-gradient($pos, $uni, $color1, $color2);
+    background: -moz-radial-gradient($pos, $uni, $color1, $color2);
+    background: -webkit-radial-gradient($pos, $uni, $color1, $color2);
+}
+
+
+
+// Frame //
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: #f6e8d7;
+    margin-top: -200px;
+    margin-left: -200px;
+    @include gradient(center, ellipse cover,  rgba(246,232,215,1) 0%, rgba(218,190,155,1) 100%);
+    overflow: hidden;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+
+// Floor //
+
+.floor {
+    position: absolute;
+    top: 244px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #232323;
+}
+
+
+// invisible men //
+
+.invisible-men {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+
+    .leg {
+        position: absolute;
+        top: 0;
+        left: 147px;
+        width: 151px;
+        height: 245px;
+        transform-origin: 50% 0;
+        // background: red;
+
+        .shoe {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: url('http://100dayscss.com/codepen/doc-martens.svg') center center no-repeat;
+            width: 151px;
+            height: 128px;
+            transform-origin: 0 95%;
+            // background: tomato;
+        }
+
+        // for left shoe
+        &.left {
+            animation: leg-swing 2s ease-in-out 1s infinite;
+
+            .shoe {
+                animation: turning-shoe 2s ease-in-out 1s infinite;
+            }
+            
+        }
+
+        // for right shoe
+        &.right {
+            animation: leg-swing 2s ease-in-out infinite;
+
+            .shoe {
+                animation: turning-shoe 2s ease-in-out infinite;
+            }
+        }
+    }
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes leg-swing {
+    0%, 100% { transform: rotate(-22deg); }
+    50%      { transform: rotate(40deg); }
+}
+
+@keyframes turning-shoe {
+    0%, 100% {
+        transform: rotate(-10deg) translateX(10px) translateY(-5px);
+    }
+    25% { transform: rotate(0) translateX(0) translateY(0); }
+    50% { transform: rotate(10deg) translateX(10px) translateY(10px); }
+    75% { transform: rotate(0deg) translateX(0) translateY(-30px); }
+}
+
+@keyframes fadeIn {
+    0%, 75% { opacity: 0 }
+    100% { opacity: 1}
+}

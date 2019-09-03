@@ -1,0 +1,91 @@
+/*
+
+017 - Pernrose CSS
+
+*/
+
+
+/* ----------- Frame ----------- */
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+
+/* -------------- Stripes ------------- */
+
+.stripes {
+    position: relative;
+    top: -57px;
+    left: -90px;
+    transform: rotate(45deg);
+    width: 600px;
+
+    .stripe {
+        background: #353535;
+        height: 3px;
+        margin-bottom: 16px;
+    }
+}
+
+
+/* ------------ Center --------------- */
+
+.center {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: 70px;
+    left: 70px;
+    background: #353535;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+
+    // Polygon
+
+    .polygon {
+        position: absolute;
+        top: 60px;
+        left: 50px;
+        width: 180px;
+        height: 140px;
+
+
+        // light
+
+        .light {
+            transition: all 0.5s ease-in-out;
+            fill: #ccc;
+        }
+
+        // middle
+
+        .middle {
+            transition: all 0.5s ease-in-out;
+            fill: #aaa;
+        }
+
+        // dark
+
+        .dark {
+            transition: all 0.5s ease-in-out;
+            fill: #eee;
+        }
+
+        // Hover
+        &:hover {
+            .light {  fill: #eee }
+            .middle { fill: #ccc }
+            .dark {   fill: #aaa }
+        }
+    }
+}
